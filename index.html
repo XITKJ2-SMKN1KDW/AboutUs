@@ -28,9 +28,11 @@
         .calc-btn.clear { background: #ef4444; color: white; }
         .calc-btn.eq { background: #10b981; color: white; }
         
-        /* Animasi Buka Tutup Accordion */
         .accordion-content { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
         .accordion-content.open { max-height: 100px; opacity: 1; margin-top: 4px; }
+
+        /* Speedtest Progress Bar */
+        .speed-progress { width: 0%; height: 4px; background: #10b981; transition: width 0.2s linear; }
     </style>
 </head>
 <body class="bg-grid selection:bg-sky-500 selection:text-white">
@@ -58,7 +60,7 @@
             <div class="h-px bg-slate-800 my-2"></div>
             <button onclick="openModal('modal-speedtest')" class="w-full text-left p-4 rounded-xl hover:bg-slate-800/50 transition flex items-center gap-3">
                 <i class="fa-solid fa-gauge-high text-emerald-400 w-5"></i>
-                <div><p class="font-semibold text-white">Network Speed Test</p><p class="text-[10px] text-slate-500">Sistem Multi-Thread Ookla</p></div>
+                <div><p class="font-semibold text-white">Network Speed Test</p><p class="text-[10px] text-slate-500">Akurasi Engine Ookla</p></div>
             </button>
             <button onclick="openModal('modal-calc')" class="w-full text-left p-4 rounded-xl hover:bg-slate-800/50 transition flex items-center gap-3">
                 <i class="fa-solid fa-calculator text-purple-400 w-5"></i>
@@ -109,19 +111,24 @@
                 </div>
                 <div class="glass-card p-6 rounded-2xl border-t-4 border-t-indigo-500">
                     <div class="flex justify-between items-center mb-4"><span class="font-bold text-white text-xl">Selasa</span><span class="text-xs font-bold bg-slate-800 text-slate-300 px-3 py-1 rounded-md">BTHJ 3</span></div>
-                    <p class="font-semibold text-indigo-400 mb-1">Konsentrasi Keahlian TJKT</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. Ngatomo / Briya Y.</p>
+                    <div class="mb-3">
+                        <p class="font-semibold text-indigo-400 mb-1">Informatika</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. Ngatono Subiarso, S.Kom</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-indigo-400 mb-1">AIJ</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. Briya Yogasa, S.Kom</p>
+                    </div>
                 </div>
                 <div class="glass-card p-6 rounded-2xl border-t-4 border-t-indigo-500">
                     <div class="flex justify-between items-center mb-4"><span class="font-bold text-white text-xl">Rabu</span><span class="text-xs font-bold bg-slate-800 text-slate-300 px-3 py-1 rounded-md">BTHJ 3</span></div>
-                    <p class="font-semibold text-indigo-400 mb-1">Konsentrasi Keahlian TJKT</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. M. Kholil Yunia H.</p>
+                    <p class="font-semibold text-indigo-400 mb-1">TKJ</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. M. Kholil Yunia Hakim, S.Kom</p>
                 </div>
                 <div class="glass-card p-6 rounded-2xl border-t-4 border-t-indigo-500">
                     <div class="flex justify-between items-center mb-4"><span class="font-bold text-white text-xl">Kamis</span><span class="text-xs font-bold bg-slate-800 text-slate-300 px-3 py-1 rounded-md">BTHJ 3</span></div>
-                    <p class="font-semibold text-indigo-400 mb-1">Konsentrasi Keahlian TJKT</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. Tino Yunus, S.Pd</p>
+                    <p class="font-semibold text-indigo-400 mb-1">ASJ</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. Tino Yunus, S.Pd</p>
                 </div>
                 <div class="glass-card p-6 rounded-2xl border-t-4 border-t-sky-500">
                     <div class="flex justify-between items-center mb-4"><span class="font-bold text-white text-xl">Jumat</span><span class="text-xs font-bold bg-slate-800 text-slate-300 px-3 py-1 rounded-md">BTHJ 3</span></div>
-                    <p class="font-semibold text-sky-400 mb-1">Mapel TKJ</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. Fariz Hidayatullah</p>
+                    <p class="font-semibold text-sky-400 mb-1">Mapel TKJ</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. Fariz Hidayatullah, S.Pd</p>
                 </div>
             </div>
 
@@ -131,198 +138,72 @@
                     <div class="p-5 flex flex-col md:flex-row gap-4">
                         <div class="w-24 font-bold text-white text-lg">Senin</div>
                         <div class="flex-1 flex flex-wrap gap-2">
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    Upacara <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    PAI & BP <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    B. Indonesia <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    BK <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Upacara <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-users mr-1 text-slate-500"></i> Seluruh Siswa</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PAI & BP <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> M. Slamet Thohirin, S.Pd.I</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Indonesia <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Fairuzabadi, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> GITA RIANAWATI, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">BK <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> SETIANINGSIH</div></div>
                         </div>
                     </div>
 
                     <div class="p-5 flex flex-col md:flex-row gap-4">
                         <div class="w-24 font-bold text-white text-lg">Selasa</div>
                         <div class="flex-1 flex flex-wrap gap-2">
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    PJOK <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    Sejarah <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    B. Indonesia <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PJOK <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Susilo, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> GITA RIANAWATI, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Sejarah <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Lidya Dwi Jayanti, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Indonesia <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Fairuzabadi, S.Pd</div></div>
                         </div>
                     </div>
 
                     <div class="p-5 flex flex-col md:flex-row gap-4">
                         <div class="w-24 font-bold text-white text-lg">Rabu</div>
                         <div class="flex-1 flex flex-wrap gap-2">
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    PPKN <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    B. Jawa <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    Sejarah <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    BK <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    Matematika <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PPKN <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Dra. Veronika Sri Sunarsi</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Jawa <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Eka Sri Nidayanti, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Sejarah <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Lidya Dwi Jayanti, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> GITA RIANAWATI, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">BK <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> SETIANINGSIH</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Matematika <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Ikrin Nuryati, S.Pd.</div></div>
                         </div>
                     </div>
 
                     <div class="p-5 flex flex-col md:flex-row gap-4">
                         <div class="w-24 font-bold text-white text-lg">Kamis</div>
                         <div class="flex-1 flex flex-wrap gap-2">
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    PAI & BP <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    Matematika <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    B. Jawa <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">
-                                    PPKN <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> [Nama Guru]
-                                </div>
-                            </div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PAI & BP <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> M. Slamet Thohirin, S.Pd.I</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> GITA RIANAWATI, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Matematika <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Ikrin Nuryati, S.Pd.</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Jawa <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Eka Sri Nidayanti, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PPKN <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Dra. Veronika Sri Sunarsi</div></div>
                         </div>
                     </div>
 
                     <div class="p-5 flex flex-col md:flex-row gap-4">
                         <div class="w-24 font-bold text-white text-lg">Jumat</div>
                         <div class="flex-1 flex flex-wrap gap-2">
-                            <div class="flex flex-col">
-                                <button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[160px]">
-                                    PBP / Kokurikuler <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i>
-                                </button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2">
-                                    <i class="fa-solid fa-users mr-1 text-slate-500"></i> Seluruh Siswa
-                                </div>
-                            </div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[160px]">PBP / Kokurikuler <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
+                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-users mr-1 text-slate-500"></i> Seluruh Siswa</div></div>
                         </div>
                     </div>
 
@@ -348,8 +229,8 @@
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-2xl"></i></button>
             <h3 class="text-2xl font-bold text-sky-400 mb-4 border-b border-slate-700 pb-2"><i class="fa-solid fa-microchip mr-2"></i> Materi Praktikum Lab</h3>
             <div class="text-sm text-slate-300 space-y-4">
-                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700"><h4 class="font-bold text-indigo-400">Konsentrasi Keahlian TJKT</h4><p class="mt-1">Membahas Administrasi Infrastruktur Jaringan (Routing, VLAN, Firewall) dan Sistem Jaringan (Debian, Web Server).</p></div>
-                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700"><h4 class="font-bold text-sky-400">Kreativitas & Kewirausahaan</h4><p class="mt-1">Membekali ilmu bisnis IT seperti jasa instalasi jaringan dan pembuatan website.</p></div>
+                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700"><h4 class="font-bold text-indigo-400">Informatika & AIJ</h4><p class="mt-1">Membahas Administrasi Infrastruktur Jaringan (Routing, VLAN, Firewall) oleh Bpk. Ngatono & Bpk. Briya.</p></div>
+                <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700"><h4 class="font-bold text-indigo-400">ASJ & TKJ</h4><p class="mt-1">Fokus ke Administrasi Sistem Jaringan (Debian, DNS, Web Server) oleh Bpk. Tino & Bpk. Kholil.</p></div>
             </div>
         </div>
 
@@ -360,14 +241,16 @@
                 <div class="bg-slate-800 p-3 rounded-lg border border-slate-700"><h4 class="font-bold text-amber-300">Fusion Splicer</h4><p class="text-xs text-slate-400">Penyambung core kaca fiber optic dengan peleburan panas listrik.</p></div>
                 <div class="bg-slate-800 p-3 rounded-lg border border-slate-700"><h4 class="font-bold text-amber-300">Cleaver</h4><p class="text-xs text-slate-400">Pisau pemotong core dengan presisi kemiringan 90 derajat.</p></div>
                 <div class="bg-slate-800 p-3 rounded-lg border border-slate-700"><h4 class="font-bold text-amber-300">OPM (Power Meter)</h4><p class="text-xs text-slate-400">Pengukur redaman/daya sinyal cahaya (dalam dBm).</p></div>
-                <div class="bg-slate-800 p-3 rounded-lg border border-slate-700"><h4 class="font-bold text-amber-300">Fiber Stripper (Tang Pengupas)</h4><p class="text-xs text-slate-400">Tang khusus pengupas jaket pelindung (cladding/coating) kabel.</p></div>
+                <div class="bg-slate-800 p-3 rounded-lg border border-slate-700"><h4 class="font-bold text-amber-300">Fiber Stripper</h4><p class="text-xs text-slate-400">Tang khusus pengupas jaket pelindung (cladding/coating) kabel.</p></div>
             </div>
         </div>
 
         <div id="modal-speedtest" class="glass-modal w-full max-w-md rounded-2xl p-6 hidden relative text-center">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-2xl"></i></button>
-            <h3 class="text-xl font-bold text-emerald-400 mb-6"><i class="fa-solid fa-gauge-high mr-2"></i> Network Speed Test</h3>
+            <h3 class="text-xl font-bold text-emerald-400 mb-4"><i class="fa-solid fa-gauge-high mr-2"></i> Network Speed Test</h3>
             
+            <div class="w-full bg-slate-800 h-1 rounded-full mb-6 overflow-hidden"><div id="speed-bar" class="speed-progress"></div></div>
+
             <div class="flex justify-around mb-6">
                 <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 w-32">
                     <p class="text-[10px] text-slate-400 uppercase">Ping</p>
@@ -379,10 +262,10 @@
                 </div>
             </div>
             
-            <button id="btn-run-speed" onclick="runMultiThreadSpeedTest()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition shadow-lg">
+            <button id="btn-run-speed" onclick="runOoklaStyleTest()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition shadow-lg">
                 MULAI TES BANDWIDTH
             </button>
-            <p class="text-[9px] text-slate-500 mt-3 text-left">* Sistem menggunakan 4 jalur (Multi-Thread) serentak untuk memaksa jaringan mencapai kecepatan puncaknya layaknya Ookla.</p>
+            <p class="text-[9px] text-slate-500 mt-3 text-left">* Menggunakan mesin XHR (XMLHttpRequest) untuk kalkulasi byte secara *real-time* tanpa membebani RAM.</p>
         </div>
 
         <div id="modal-calc" class="glass-modal w-full max-w-sm rounded-2xl p-6 hidden relative">
@@ -445,83 +328,77 @@
         }
         function closeModal() { document.getElementById('modal-container').classList.add('hidden'); }
 
-        // ACCORDION JADWAL TEORI (Klik nama mapel, muncul nama guru)
+        // ACCORDION JADWAL TEORI
         function toggleTeacher(button) {
             const content = button.nextElementSibling;
             const icon = button.querySelector('.fa-caret-down');
-            
             if (content.classList.contains('open')) {
-                content.classList.remove('open');
-                icon.style.transform = 'rotate(0deg)';
+                content.classList.remove('open'); icon.style.transform = 'rotate(0deg)';
             } else {
-                // Tutup yang lain dulu biar rapi (opsional, tapi bagus)
                 const allContents = button.parentElement.parentElement.querySelectorAll('.accordion-content');
                 const allIcons = button.parentElement.parentElement.querySelectorAll('.fa-caret-down');
-                allContents.forEach(c => c.classList.remove('open'));
-                allIcons.forEach(i => i.style.transform = 'rotate(0deg)');
-                
-                content.classList.add('open');
-                icon.style.transform = 'rotate(180deg)';
-                icon.style.transition = 'transform 0.3s ease';
+                allContents.forEach(c => c.classList.remove('open')); allIcons.forEach(i => i.style.transform = 'rotate(0deg)');
+                content.classList.add('open'); icon.style.transform = 'rotate(180deg)'; icon.style.transition = 'transform 0.3s ease';
             }
         }
 
-        // SPEED TEST MULTI-THREAD (OOKLA STYLE)
-        async function runMultiThreadSpeedTest() {
+        // ENGINE SPEEDTEST (XHR Murni ala Ookla)
+        function runOoklaStyleTest() {
             const btn = document.getElementById('btn-run-speed');
             const pingTxt = document.getElementById('ping-result');
             const dlTxt = document.getElementById('dl-result');
+            const pBar = document.getElementById('speed-bar');
             
-            btn.disabled = true; btn.innerText = "MENGUKUR PING...";
+            btn.disabled = true; btn.innerText = "MENGUJI...";
+            pBar.style.width = '0%';
             pingTxt.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-slate-400"></i>`;
             dlTxt.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-slate-400"></i>`;
 
+            // Ukur Ping
             let startPing = performance.now();
-            try {
-                await fetch('https://speed.cloudflare.com/__down?bytes=100', { cache: 'no-store' });
+            fetch('https://speed.cloudflare.com/__down?bytes=10', { cache: 'no-store' })
+            .then(() => {
                 pingTxt.innerHTML = `${(performance.now() - startPing).toFixed(0)} <span class="text-xs">ms</span>`;
-            } catch(e) { pingTxt.innerHTML = `ERR`; }
+                startDownloadTest();
+            }).catch(() => {
+                pingTxt.innerHTML = `ERR`; startDownloadTest();
+            });
 
-            btn.innerText = "MENGUJI BANDWIDTH...";
-            
-            // Logika Multi-Thread (4 Jalur Download Serentak selama 8 detik)
-            const durationTarget = 8000; 
-            const startTime = performance.now();
-            let totalBytes = 0;
-            let isTesting = true;
-
-            const downloadWorker = async () => {
-                while(isTesting && (performance.now() - startTime) < durationTarget) {
-                    try {
-                        const response = await fetch('https://speed.cloudflare.com/__down?bytes=5000000', { cache: 'no-store' });
-                        const reader = response.body.getReader();
-                        while(true) {
-                            const {done, value} = await reader.read();
-                            if(done || !isTesting) break;
-                            totalBytes += value.length; // Tambah ukuran data yang berhasil disedot
-                        }
-                    } catch(e) { /* Abaikan error dan coba lagi di loop selanjutnya */ }
-                }
-            };
-
-            // Buka 4 jalur pekerja secara bersamaan
-            const workers = [downloadWorker(), downloadWorker(), downloadWorker(), downloadWorker()];
-
-            // Update UI setiap 0.5 detik
-            const uiInterval = setInterval(() => {
-                let elapsed = (performance.now() - startTime) / 1000;
-                let speedBps = (totalBytes * 8) / elapsed; // Hitung kecepatan per detik
-                dlTxt.innerHTML = `${(speedBps / 1000000).toFixed(2)} <span class="text-xs">Mbps</span>`;
+            // Ukur Bandwidth menggunakan XMLHttpRequest (Akurat & Ringan di RAM)
+            function startDownloadTest() {
+                const xhr = new XMLHttpRequest();
+                // Download file 25MB dari server speedtest cloudflare
+                const url = 'https://speed.cloudflare.com/__down?bytes=25000000'; 
+                let startTime = performance.now();
                 
-                if(elapsed >= (durationTarget/1000)) {
-                    isTesting = false;
-                    clearInterval(uiInterval);
-                    btn.innerText = "TES LAGI";
-                    btn.disabled = false;
-                }
-            }, 500);
+                xhr.open('GET', url, true);
+                
+                // Merekam data byte secara real-time saat berjalan
+                xhr.onprogress = function(event) {
+                    if (event.lengthComputable) {
+                        let durationSec = (performance.now() - startTime) / 1000;
+                        let loadedBits = event.loaded * 8;
+                        let speedMbps = (loadedBits / durationSec / 1000000).toFixed(2);
+                        
+                        dlTxt.innerHTML = `${speedMbps} <span class="text-xs">Mbps</span>`;
+                        
+                        // Update Progress bar (Maksimal 25MB)
+                        let percentComplete = (event.loaded / event.total) * 100;
+                        pBar.style.width = percentComplete + '%';
+                    }
+                };
 
-            await Promise.all(workers);
+                xhr.onload = function() {
+                    btn.innerText = "TES LAGI"; btn.disabled = false;
+                    pBar.style.width = '100%';
+                };
+
+                xhr.onerror = function() {
+                    dlTxt.innerHTML = `FAILED`; btn.innerText = "RETRY"; btn.disabled = false;
+                };
+
+                xhr.send();
+            }
         }
 
         // KALKULATOR
