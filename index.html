@@ -30,9 +30,10 @@
         
         .accordion-content { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
         .accordion-content.open { max-height: 100px; opacity: 1; margin-top: 4px; }
-
-        /* Speedtest Progress Bar */
         .speed-progress { width: 0%; height: 4px; background: #10b981; transition: width 0.2s linear; }
+
+        /* Transisi halus untuk kata-kata bijak */
+        #quote-box { transition: opacity 0.5s ease-in-out; }
     </style>
 </head>
 <body class="bg-grid selection:bg-sky-500 selection:text-white">
@@ -85,15 +86,24 @@
         </div>
     </nav>
 
-    <section id="home" class="relative pt-32 pb-10 lg:pt-48 lg:pb-20 overflow-hidden flex flex-col items-center justify-center">
+    <section id="home" class="relative pt-32 pb-10 lg:pt-48 lg:pb-20 overflow-hidden flex flex-col items-center justify-center min-h-[85vh]">
         <div class="absolute top-[20%] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-sky-600/20 blur-[150px] rounded-full pointer-events-none z-0"></div>
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
             <h1 class="text-5xl md:text-7xl font-black mb-4 leading-tight">Welcome to <br> <span class="text-gradient">XI TKJ 2</span></h1>
-            <p class="text-base md:text-lg text-slate-400 max-w-2xl mx-auto mb-8">Portal Resmi Siswa Administrasi Infrastruktur & Jaringan.<br>SMK Negeri 1 Kedungwuni.</p>
+            <p class="text-base md:text-lg text-slate-400 max-w-2xl mx-auto mb-10">Portal Resmi Siswa Administrasi Infrastruktur & Jaringan.<br>SMK Negeri 1 Kedungwuni.</p>
+            
+            <div class="max-w-xl mx-auto bg-slate-800/30 border border-slate-700/50 p-6 rounded-2xl backdrop-blur-md min-h-[120px] flex flex-col justify-center items-center shadow-lg">
+                <div id="quote-box" class="w-full">
+                    <i class="fa-solid fa-quote-left text-sky-500/50 text-3xl mb-2"></i>
+                    <p id="quote-text" class="text-lg md:text-xl font-medium text-sky-100 italic">"Memuat kata-kata bijak..."</p>
+                    <p id="quote-author" class="text-sm font-bold text-sky-500 mt-3 tracking-widest uppercase">- System</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="jadwal" class="py-16 relative z-10">
+    <section id="jadwal" class="py-16 relative z-10 border-t border-slate-800/50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
                 <h3 class="text-3xl font-bold text-white mb-2">Jadwal <span class="font-light">Pelajaran</span></h3>
@@ -107,7 +117,7 @@
             <div id="content-bengkel" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 animate-[fadeIn_0.5s_ease-in-out]">
                 <div class="glass-card p-6 rounded-2xl border-t-4 border-t-sky-500">
                     <div class="flex justify-between items-center mb-4"><span class="font-bold text-white text-xl">Senin</span><span class="text-xs font-bold bg-slate-800 text-slate-300 px-3 py-1 rounded-md">Jam 3 - 10</span></div>
-                    <p class="font-semibold text-sky-400 mb-1">PKK</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. Miftakhudin, S.Kom</p>
+                    <p class="font-semibold text-sky-400 mb-1">Kreativitas & Kewirausahaan</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. Miftakhudin, S.Kom</p>
                 </div>
                 <div class="glass-card p-6 rounded-2xl border-t-4 border-t-indigo-500">
                     <div class="flex justify-between items-center mb-4"><span class="font-bold text-white text-xl">Selasa</span><span class="text-xs font-bold bg-slate-800 text-slate-300 px-3 py-1 rounded-md">BTHJ 3</span></div>
@@ -120,7 +130,7 @@
                 </div>
                 <div class="glass-card p-6 rounded-2xl border-t-4 border-t-indigo-500">
                     <div class="flex justify-between items-center mb-4"><span class="font-bold text-white text-xl">Rabu</span><span class="text-xs font-bold bg-slate-800 text-slate-300 px-3 py-1 rounded-md">BTHJ 3</span></div>
-                    <p class="font-semibold text-indigo-400 mb-1">TLJ</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. M. Kholil Yunia Hakim, S.Kom</p>
+                    <p class="font-semibold text-indigo-400 mb-1">TKJ</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. M. Kholil Yunia Hakim, S.Kom</p>
                 </div>
                 <div class="glass-card p-6 rounded-2xl border-t-4 border-t-indigo-500">
                     <div class="flex justify-between items-center mb-4"><span class="font-bold text-white text-xl">Kamis</span><span class="text-xs font-bold bg-slate-800 text-slate-300 px-3 py-1 rounded-md">BTHJ 3</span></div>
@@ -128,7 +138,7 @@
                 </div>
                 <div class="glass-card p-6 rounded-2xl border-t-4 border-t-sky-500">
                     <div class="flex justify-between items-center mb-4"><span class="font-bold text-white text-xl">Jumat</span><span class="text-xs font-bold bg-slate-800 text-slate-300 px-3 py-1 rounded-md">BTHJ 3</span></div>
-                    <p class="font-semibold text-sky-400 mb-1">Mapel Pilihan</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. Fariz Hidayatullah, S.Pd</p>
+                    <p class="font-semibold text-sky-400 mb-1">Mapel TKJ</p><p class="text-xs text-slate-400"><i class="fa-solid fa-user-tie mr-1"></i> Bpk. Fariz Hidayatullah, S.Pd</p>
                 </div>
             </div>
 
@@ -138,72 +148,51 @@
                     <div class="p-5 flex flex-col md:flex-row gap-4">
                         <div class="w-24 font-bold text-white text-lg">Senin</div>
                         <div class="flex-1 flex flex-wrap gap-2">
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Upacara <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-users mr-1 text-slate-500"></i> Seluruh Siswa</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PAI & BP <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> M. Slamet Thohirin, S.Pd.I</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Indonesia <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Fairuzabadi, S.Pd</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> GITA RIANAWATI, S.Pd</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">BK <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> SETIANINGSIH</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Upacara <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-users mr-1 text-slate-500"></i> Seluruh Siswa</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PAI & BP <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> M. Slamet Thohirin, S.Pd.I</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Indonesia <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Fairuzabadi, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> GITA RIANAWATI, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">BK <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> SETIANINGSIH</div></div>
                         </div>
                     </div>
 
                     <div class="p-5 flex flex-col md:flex-row gap-4">
                         <div class="w-24 font-bold text-white text-lg">Selasa</div>
                         <div class="flex-1 flex flex-wrap gap-2">
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PJOK <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Susilo, S.Pd</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> GITA RIANAWATI, S.Pd</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Sejarah <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Lidya Dwi Jayanti, S.Pd</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Indonesia <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Fairuzabadi, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PJOK <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Susilo, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> GITA RIANAWATI, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Sejarah <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Lidya Dwi Jayanti, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Indonesia <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Fairuzabadi, S.Pd</div></div>
                         </div>
                     </div>
 
                     <div class="p-5 flex flex-col md:flex-row gap-4">
                         <div class="w-24 font-bold text-white text-lg">Rabu</div>
                         <div class="flex-1 flex flex-wrap gap-2">
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PPKN <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Dra. Veronika Sri Sunarsi</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Jawa <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Eka Sri Nidayanti, S.Pd</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Sejarah <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Lidya Dwi Jayanti, S.Pd</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> GITA RIANAWATI, S.Pd</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">BK <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> SETIANINGSIH</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Matematika <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Ikrin Nuryati, S.Pd.</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PPKN <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Dra. Veronika Sri Sunarsi</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Jawa <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Eka Sri Nidayanti, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Sejarah <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Lidya Dwi Jayanti, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> GITA RIANAWATI, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">BK <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> SETIANINGSIH</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Matematika <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Ikrin Nuryati, S.Pd.</div></div>
                         </div>
                     </div>
 
                     <div class="p-5 flex flex-col md:flex-row gap-4">
                         <div class="w-24 font-bold text-white text-lg">Kamis</div>
                         <div class="flex-1 flex flex-wrap gap-2">
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PAI & BP <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> M. Slamet Thohirin, S.Pd.I</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> GITA RIANAWATI, S.Pd</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Matematika <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Ikrin Nuryati, S.Pd.</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Jawa <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Eka Sri Nidayanti, S.Pd</div></div>
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PPKN <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Dra. Veronika Sri Sunarsi</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PAI & BP <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> M. Slamet Thohirin, S.Pd.I</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Inggris <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> GITA RIANAWATI, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">Matematika <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Ikrin Nuryati, S.Pd.</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">B. Jawa <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Eka Sri Nidayanti, S.Pd</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[120px]">PPKN <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-user-tie mr-1 text-slate-500"></i> Dra. Veronika Sri Sunarsi</div></div>
                         </div>
                     </div>
 
                     <div class="p-5 flex flex-col md:flex-row gap-4">
                         <div class="w-24 font-bold text-white text-lg">Jumat</div>
                         <div class="flex-1 flex flex-wrap gap-2">
-                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[160px]">PBP / Kokurikuler <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button>
-                                <div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-users mr-1 text-slate-500"></i> Seluruh Siswa</div></div>
+                            <div class="flex flex-col"><button onclick="toggleTeacher(this)" class="px-3 py-1 bg-slate-800 rounded-md text-sm text-slate-300 border border-slate-700 hover:bg-slate-700 transition flex items-center justify-between gap-2 min-w-[160px]">PBP / Kokurikuler <i class="fa-solid fa-caret-down text-slate-500 text-xs"></i></button><div class="accordion-content bg-slate-900 rounded-md border border-slate-800 text-xs text-sky-400 px-3 py-2"><i class="fa-solid fa-users mr-1 text-slate-500"></i> Seluruh Siswa</div></div>
                         </div>
                     </div>
 
@@ -214,7 +203,7 @@
 
     <footer class="py-10 border-t border-slate-800 text-center relative z-10">
         <p class="text-sm text-slate-400">XI TKJ 2 &copy; 2026. SMKN 1 Kedungwuni.</p>
-        <p class="text-xs text-sky-500 mt-1">Built by Affa Yubarik</p>
+        <p class="text-xs text-sky-500 mt-1">Built by Anak Ganteng (Absen 05)</p>
     </footer>
 
     <div id="modal-container" class="fixed inset-0 z-[80] hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
@@ -265,7 +254,7 @@
             <button id="btn-run-speed" onclick="runOoklaStyleTest()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition shadow-lg">
                 MULAI TES BANDWIDTH
             </button>
-            <p class="text-[9px] text-slate-500 mt-3 text-left">* Menggunakan mesin XHR (XMLHttpRequest) untuk kalkulasi byte secara *real-time* tanpa membebani RAM.</p>
+            <p class="text-[9px] text-slate-500 mt-3 text-left">* Menggunakan mesin XHR untuk memastikan angka kecepatan yang muncul murni dan akurat tanpa membebani RAM HP.</p>
         </div>
 
         <div id="modal-calc" class="glass-modal w-full max-w-sm rounded-2xl p-6 hidden relative">
@@ -308,11 +297,10 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <script>
-        // SIDEBAR & TABS
+        // === SIDEBAR & TABS ===
         function toggleSidebar() { document.getElementById('sidebar').classList.toggle('-translate-x-full'); document.getElementById('sidebar-overlay').classList.toggle('hidden'); }
         function switchTab(tId) {
             document.getElementById('btn-bengkel').className = tId === 'bengkel' ? "tab-btn tab-active border px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg" : "tab-btn tab-inactive border px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg";
@@ -328,7 +316,7 @@
         }
         function closeModal() { document.getElementById('modal-container').classList.add('hidden'); }
 
-        // ACCORDION JADWAL TEORI
+        // === ACCORDION GURU TEORI ===
         function toggleTeacher(button) {
             const content = button.nextElementSibling;
             const icon = button.querySelector('.fa-caret-down');
@@ -342,21 +330,23 @@
             }
         }
 
-        // ENGINE SPEEDTEST (XHR Murni ala Ookla)
+        // === ENGINE SPEEDTEST (FIXED PROGRESS) ===
         function runOoklaStyleTest() {
             const btn = document.getElementById('btn-run-speed');
             const pingTxt = document.getElementById('ping-result');
             const dlTxt = document.getElementById('dl-result');
             const pBar = document.getElementById('speed-bar');
             
-            btn.disabled = true; btn.innerText = "MENGUJI...";
+            btn.disabled = true; btn.innerText = "MENGUJI PING...";
             pBar.style.width = '0%';
             pingTxt.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-slate-400"></i>`;
             dlTxt.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-slate-400"></i>`;
 
-            // Ukur Ping
             let startPing = performance.now();
-            fetch('https://speed.cloudflare.com/__down?bytes=10', { cache: 'no-store' })
+            // Cache buster biar 100% selalu download baru
+            const cacheBuster = `?v=${new Date().getTime()}`;
+
+            fetch('https://speed.cloudflare.com/__down?bytes=10' + cacheBuster)
             .then(() => {
                 pingTxt.innerHTML = `${(performance.now() - startPing).toFixed(0)} <span class="text-xs">ms</span>`;
                 startDownloadTest();
@@ -364,27 +354,33 @@
                 pingTxt.innerHTML = `ERR`; startDownloadTest();
             });
 
-            // Ukur Bandwidth menggunakan XMLHttpRequest (Akurat & Ringan di RAM)
             function startDownloadTest() {
+                btn.innerText = "MENGUJI BANDWIDTH...";
                 const xhr = new XMLHttpRequest();
-                // Download file 25MB dari server speedtest cloudflare
-                const url = 'https://speed.cloudflare.com/__down?bytes=25000000'; 
+                // Menggunakan endpoint Cloudflare 25MB + Cache Buster
+                const url = 'https://speed.cloudflare.com/__down?bytes=25000000' + cacheBuster; 
                 let startTime = performance.now();
                 
                 xhr.open('GET', url, true);
                 
-                // Merekam data byte secara real-time saat berjalan
                 xhr.onprogress = function(event) {
+                    let durationSec = (performance.now() - startTime) / 1000;
+                    let loadedBits = event.loaded * 8;
+                    // Kalkulasi kecepatan langsung dari byte yang ter-download per detik
+                    let speedMbps = (loadedBits / durationSec / 1000000).toFixed(2);
+                    
+                    // Update Text Speed (Angka Kecepatan)
+                    dlTxt.innerHTML = `${speedMbps} <span class="text-xs">Mbps</span>`;
+                    
+                    // Update Progress Bar
+                    // Jika server mendukung pengiriman ukuran file total
                     if (event.lengthComputable) {
-                        let durationSec = (performance.now() - startTime) / 1000;
-                        let loadedBits = event.loaded * 8;
-                        let speedMbps = (loadedBits / durationSec / 1000000).toFixed(2);
-                        
-                        dlTxt.innerHTML = `${speedMbps} <span class="text-xs">Mbps</span>`;
-                        
-                        // Update Progress bar (Maksimal 25MB)
                         let percentComplete = (event.loaded / event.total) * 100;
                         pBar.style.width = percentComplete + '%';
+                    } else {
+                        // Fallback: Jika server pelit info, kita asumsikan total 25MB
+                        let percentComplete = (event.loaded / 25000000) * 100;
+                        pBar.style.width = Math.min(percentComplete, 100) + '%';
                     }
                 };
 
@@ -401,7 +397,7 @@
             }
         }
 
-        // KALKULATOR
+        // === KALKULATOR ===
         let calcVal = "";
         function switchCalc(type) {
             document.getElementById('view-math').classList.toggle('hidden', type !== 'math');
@@ -425,7 +421,7 @@
             } catch(e) { document.getElementById('calc-display').innerText = "ERROR"; calcVal = ""; }
         }
 
-        // KONVERTER
+        // === KONVERTER ===
         const units = {
             length: { 'Meter (m)': 1, 'Kilometer (km)': 1000, 'Centimeter (cm)': 0.01, 'Mil (mi)': 1609.34 },
             volume: { 'Liter (L)': 1, 'Mililiter (ml)': 0.001, 'Galon (gal)': 3.78541 },
@@ -444,6 +440,173 @@
             const rateFrom = units[type][document.getElementById('conv-from').value], rateTo = units[type][document.getElementById('conv-to').value];
             document.getElementById('conv-result').innerText = parseFloat((type === 'currency' ? (val * rateFrom) / rateTo : (val * rateFrom) / rateTo).toFixed(4));
         }
+
+        // =========================================================
+        // === KUMPULAN KATA-KATA BIJAK (GAMPANG DITAMBAH DI SINI) ===
+        // =========================================================
+        const kataBijak = [
+            // --- Tokoh Teknologi & Bisnis ---
+            { text: "Satu-satunya cara untuk melakukan pekerjaan hebat adalah dengan mencintai apa yang Anda lakukan.", author: "Steve Jobs" },
+            { text: "Inovasi membedakan antara seorang pemimpin dan pengikut.", author: "Steve Jobs" },
+            { text: "Waktumu terbatas, jadi jangan sia-siakan dengan menjalani hidup orang lain.", author: "Steve Jobs" },
+            { text: "Jika Anda lahir miskin, itu bukan kesalahan Anda. Tapi jika Anda meninggal miskin, itu kesalahan Anda.", author: "Bill Gates" },
+            { text: "Pelanggan Anda yang paling tidak bahagia adalah sumber pembelajaran terbesar Anda.", author: "Bill Gates" },
+            { text: "Risiko terbesar adalah tidak mengambil risiko sama sekali.", author: "Mark Zuckerberg" },
+            { text: "Ketika sesuatu cukup penting, Anda melakukannya bahkan jika rintangan tidak menguntungkan Anda.", author: "Elon Musk" },
+            { text: "Kegagalan adalah sebuah opsi di sini. Jika hal-hal tidak gagal, Anda tidak cukup berinovasi.", author: "Elon Musk" },
+            { text: "Hari ini kejam. Besok lebih kejam. Dan lusa sangat indah.", author: "Jack Ma" },
+            { text: "Bekerja keraslah dalam kesunyian, biarkan kesuksesanmu menjadi kebisinganmu.", author: "Frank Ocean" },
+            
+            // --- Ilmuwan & Penemu ---
+            { text: "Imajinasi lebih penting daripada pengetahuan. Pengetahuan terbatas, imajinasi mengelilingi dunia.", author: "Albert Einstein" },
+            { text: "Jangan mencoba menjadi orang yang sukses, melainkan cobalah menjadi orang yang bernilai.", author: "Albert Einstein" },
+            { text: "Hidup itu seperti mengendarai sepeda. Untuk menjaga keseimbangan, Anda harus terus bergerak.", author: "Albert Einstein" },
+            { text: "Saya belum gagal. Saya baru saja menemukan 10.000 cara yang tidak akan berhasil.", author: "Thomas A. Edison" },
+            { text: "Jenius adalah 1% inspirasi dan 99% keringat.", author: "Thomas A. Edison" },
+            { text: "Masa depan adalah milik mereka yang mempersiapkan hari ini.", author: "Nikola Tesla" },
+            { text: "Kecerdasan adalah kemampuan untuk beradaptasi terhadap perubahan.", author: "Stephen Hawking" },
+            { text: "Sesuatu yang belum pernah dicoba, tidak akan pernah membuahkan hasil.", author: "Isaac Newton" },
+            { text: "Dalam sains, kita harus tertarik pada hal-hal, bukan pada orang.", author: "Marie Curie" },
+            { text: "Tidak ada yang harus ditakuti dalam hidup ini, itu hanya untuk dipahami.", author: "Marie Curie" },
+
+            // --- Pahlawan & Tokoh Indonesia ---
+            { text: "Beri aku 1.000 orang tua, niscaya akan kucabut Semeru dari akarnya. Beri aku 10 pemuda, niscaya akan kuguncangkan dunia.", author: "Soekarno" },
+            { text: "Bangsa yang besar adalah bangsa yang menghormati jasa pahlawannya.", author: "Soekarno" },
+            { text: "Kurang cerdas dapat diperbaiki dengan belajar, kurang cakap dapat dihilangkan dengan pengalaman. Namun tidak jujur sulit diperbaiki.", author: "Mohammad Hatta" },
+            { text: "Jatuh bangunnya negara ini, sangat tergantung dari bangsa ini sendiri.", author: "Mohammad Hatta" },
+            { text: "Kegagalan hanya terjadi bila kita menyerah.", author: "B.J. Habibie" },
+            { text: "Jadilah mata air yang jernih, yang memberikan kehidupan kepada sekitarmu.", author: "B.J. Habibie" },
+            { text: "Terkadang, kesulitan harus kamu rasakan terlebih dahulu sebelum kebahagiaan yang sempurna datang kepadamu.", author: "R.A. Kartini" },
+            { text: "Robek-robeklah badanku, potong-potonglah jasad ini, tetapi jiwaku dilindungi benteng merah putih.", author: "Jenderal Sudirman" },
+            { text: "Kejahatan akan menang bila orang yang benar tidak melakukan apa-apa.", author: "Jenderal Sudirman" },
+            { text: "Pendidikan adalah tiket ke masa depan. Hari esok dimiliki oleh orang-orang yang mempersiapkannya hari ini.", author: "Ki Hajar Dewantara" },
+
+            // --- Pemimpin Dunia & Aktivis ---
+            { text: "Pendidikan adalah senjata paling mematikan di dunia, karena dengan pendidikan, Anda dapat mengubah dunia.", author: "Nelson Mandela" },
+            { text: "Selalu terlihat tidak mungkin sampai hal itu selesai.", author: "Nelson Mandela" },
+            { text: "Jadilah perubahan yang ingin Anda lihat di dunia.", author: "Mahatma Gandhi" },
+            { text: "Hiduplah seolah-olah Anda akan mati besok. Belajarlah seolah-olah Anda akan hidup selamanya.", author: "Mahatma Gandhi" },
+            { text: "Kegelapan tidak bisa mengusir kegelapan; hanya cahaya yang bisa melakukannya. Kebencian tidak bisa mengusir kebencian; hanya cinta yang bisa melakukannya.", author: "Martin Luther King Jr." },
+            { text: "Waktu selalu tepat untuk melakukan apa yang benar.", author: "Martin Luther King Jr." },
+            { text: "Kesuksesan bukanlah akhir, kegagalan bukanlah hal yang fatal: keberanian untuk melanjutkanlah yang penting.", author: "Winston Churchill" },
+            { text: "Orang pesimis melihat kesulitan di setiap kesempatan. Orang optimis melihat kesempatan di setiap kesulitan.", author: "Winston Churchill" },
+            { text: "Cara terbaik untuk memprediksi masa depan adalah dengan menciptakannya.", author: "Abraham Lincoln" },
+            { text: "Pada akhirnya, bukan tahun-tahun dalam hidupmu yang dihitung. Melainkan kehidupan dalam tahun-tahunmu.", author: "Abraham Lincoln" },
+
+            // --- Filsuf & Pemikir ---
+            { text: "Kebijaksanaan sejati datang ke masing-masing dari kita ketika kita menyadari betapa sedikit kita memahami tentang kehidupan, diri kita sendiri, dan dunia di sekitar kita.", author: "Socrates" },
+            { text: "Akar dari pendidikan memang pahit, tapi buahnya manis.", author: "Aristoteles" },
+            { text: "Mengetahui diri sendiri adalah awal dari semua kebijaksanaan.", author: "Aristoteles" },
+            { text: "Tidak masalah seberapa lambat Anda berjalan selama Anda tidak berhenti.", author: "Konfusius" },
+            { text: "Kemenangan terbesar kita bukanlah karena tidak pernah jatuh, tetapi bangkit setiap kali kita jatuh.", author: "Konfusius" },
+            { text: "Perjalanan ribuan mil dimulai dengan satu langkah.", author: "Lao Tzu" },
+            { text: "Keberuntungan adalah apa yang terjadi ketika persiapan bertemu dengan kesempatan.", author: "Seneca" },
+            { text: "Bukan karena hal-hal sulit kita tidak berani; karena kita tidak berani, hal-hal menjadi sulit.", author: "Seneca" },
+            { text: "Anda memiliki kekuatan atas pikiran Anda - bukan peristiwa di luar. Sadarilah ini, dan Anda akan menemukan kekuatan.", author: "Marcus Aurelius" },
+            { text: "Kualitas hidupmu ditentukan oleh kualitas pikiranmu.", author: "Marcus Aurelius" },
+
+            // --- Sastrawan, Seniman & Penulis ---
+            { text: "Dua hari paling penting dalam hidupmu adalah hari kamu dilahirkan dan hari kamu tahu alasannya.", author: "Mark Twain" },
+            { text: "Rahasia untuk maju adalah memulai.", author: "Mark Twain" },
+            { text: "Orang akan melupakan apa yang Anda katakan, orang akan melupakan apa yang Anda lakukan, tetapi orang tidak akan pernah melupakan bagaimana Anda membuat mereka merasa.", author: "Maya Angelou" },
+            { text: "Kita bisa mengalami banyak kekalahan, tapi kita tidak boleh dikalahkan.", author: "Maya Angelou" },
+            { text: "Ketahuilah bahwa apa pun yang Anda inginkan dapat Anda miliki, jika Anda menginginkannya dengan cukup kuat.", author: "Helen Keller" },
+            { text: "Karakter tidak dapat dikembangkan dalam kemudahan dan ketenangan. Hanya melalui pengalaman ujian dan penderitaan jiwa dapat diperkuat.", author: "Helen Keller" },
+            { text: "Simplicity adalah kecanggihan tertinggi.", author: "Leonardo da Vinci" },
+            { text: "Belajar tidak pernah melelahkan pikiran.", author: "Leonardo da Vinci" },
+            { text: "Saya bermimpi melukis dan kemudian saya melukis impian saya.", author: "Vincent van Gogh" },
+            { text: "Karya besar tidak dilakukan dengan paksaan, tetapi dengan serangkaian hal kecil yang disatukan.", author: "Vincent van Gogh" },
+
+            // --- Tokoh Olahraga & Motivator ---
+            { text: "Saya benci setiap menit latihan, tapi saya berkata, 'Jangan berhenti. Menderitalah sekarang dan jalani sisa hidupmu sebagai seorang juara.'", author: "Muhammad Ali" },
+            { text: "Saya telah gagal berkali-kali dalam hidup saya dan itulah mengapa saya sukses.", author: "Michael Jordan" },
+            { text: "Bakat memenangkan pertandingan, tetapi kerja sama tim dan kecerdasan memenangkan kejuaraan.", author: "Michael Jordan" },
+            { text: "Mengetahui tidak cukup, kita harus melamar. Kemauan tidak cukup, kita harus melakukan.", author: "Bruce Lee" },
+            { text: "Jangan berdoa untuk kehidupan yang mudah, berdoalah untuk kekuatan menanggung kehidupan yang sulit.", author: "Bruce Lee" },
+            { text: "Mimpi bukanlah apa yang Anda lihat dalam tidur, mimpi adalah hal yang tidak membiarkan Anda tidur.", author: "Cristiano Ronaldo" },
+            { text: "Sukses bukanlah kebetulan. Sukses itu kerja keras, ketekunan, pembelajaran, belajar, berkorban, dan yang paling penting, cinta akan apa yang Anda lakukan.", author: "Pelé" },
+            { text: "Jika Anda takut gagal, Anda tidak pantas untuk sukses.", author: "Charles Barkley" },
+            { text: "Percaya bahwa Anda bisa dan Anda sudah setengah jalan ke sana.", author: "Theodore Roosevelt" },
+            { text: "Satu-satunya batasan untuk realisasi kita tentang hari esok adalah keraguan kita hari ini.", author: "Franklin D. Roosevelt" },
+
+            // --- Mentalitas Kerja & Kehidupan Umum ---
+            { text: "Bukan gunung yang harus kita taklukkan, melainkan diri kita sendiri.", author: "Edmund Hillary" },
+            { text: "Lakukan apa yang Anda bisa, dengan apa yang Anda miliki, di mana pun Anda berada.", author: "Theodore Roosevelt" },
+            { text: "Orang gila yang berpikir mereka bisa mengubah dunia, adalah orang-orang yang benar-benar melakukannya.", author: "Rob Siltanen" },
+            { text: "Hanya mereka yang berani gagal besar yang bisa mencapai hal besar.", author: "Robert F. Kennedy" },
+            { text: "Cara untuk memulai adalah dengan berhenti berbicara dan mulai melakukan.", author: "Walt Disney" },
+            { text: "Pekerjaan Anda akan mengisi sebagian besar hidup Anda, dan satu-satunya cara untuk benar-benar puas adalah melakukan apa yang Anda yakini sebagai pekerjaan hebat.", author: "Steve Jobs" },
+            { text: "Jangan biarkan hari kemarin menyita terlalu banyak waktu hari ini.", author: "Will Rogers" },
+            { text: "Anda belajar lebih banyak dari kegagalan daripada dari kesuksesan. Jangan biarkan itu menghentikan Anda.", author: "Lolly Daskal" },
+            { text: "Bukan apakah Anda dijatuhkan, tetapi apakah Anda bangkit kembali.", author: "Vince Lombardi" },
+            { text: "Jika Anda sedang melalui neraka, teruslah berjalan.", author: "Winston Churchill" },
+            { text: "Apa yang tampaknya menjadi ujian yang pahit seringkali adalah berkah yang menyamar.", author: "Oscar Wilde" },
+            { text: "Hal-hal besar tidak pernah datang dari zona nyaman.", author: "Neil Strauss" },
+            { text: "Kerja keras mengalahkan bakat ketika bakat gagal bekerja keras.", author: "Kevin Durant" },
+            { text: "Berhentilah mengejar uang dan mulailah mengejar hasrat.", author: "Tony Hsieh" },
+            { text: "Peluang tidak terjadi. Anda yang menciptakannya.", author: "Chris Grosser" },
+            { text: "Jangan tunda sampai besok apa yang bisa Anda lakukan hari ini.", author: "Benjamin Franklin" },
+            { text: "Sukses biasanya datang kepada mereka yang terlalu sibuk untuk mencarinya.", author: "Henry David Thoreau" },
+            { text: "Saya menemukan bahwa semakin keras saya bekerja, semakin banyak keberuntungan yang tampaknya saya miliki.", author: "Thomas Jefferson" },
+            { text: "Bangun impian Anda sendiri, atau orang lain akan mempekerjakan Anda untuk membangun impian mereka.", author: "Farrah Gray" },
+            { text: "Satu-satunya perbedaan antara orang sukses dan orang lain bukanlah kurangnya kekuatan atau kurangnya pengetahuan, melainkan kurangnya kemauan.", author: "Vince Lombardi" },
+
+            // --- Pengembangan Diri ---
+            { text: "Setiap ahli dulunya adalah seorang pemula.", author: "Helen Hayes" },
+            { text: "Jangan pernah biarkan rasa takut gagal menghalangimu untuk bermain.", author: "Babe Ruth" },
+            { text: "Kita menjadi apa yang kita pikirkan sepanjang hari.", author: "Earl Nightingale" },
+            { text: "Kesuksesan adalah jumlah dari upaya kecil, diulang hari demi hari.", author: "Robert Collier" },
+            { text: "Tidak ada rahasia untuk sukses. Itu adalah hasil dari persiapan, kerja keras, dan belajar dari kegagalan.", author: "Colin Powell" },
+            { text: "Tantangan adalah apa yang membuat hidup menarik dan mengatasinya adalah apa yang membuat hidup bermakna.", author: "Joshua J. Marine" },
+            { text: "Jangan berharap itu lebih mudah. Berharaplah kamu lebih baik.", author: "Jim Rohn" },
+            { text: "Motivasi adalah apa yang membuatmu memulai. Kebiasaan adalah apa yang membuatmu terus maju.", author: "Jim Ryun" },
+            { text: "Sikap Anda, bukan kecerdasan Anda, yang akan menentukan ketinggian Anda.", author: "Zig Ziglar" },
+            { text: "Masa depan tergantung pada apa yang Anda lakukan hari ini.", author: "Mahatma Gandhi" },
+            
+            // --- Kepemimpinan ---
+            { text: "Pemimpin adalah seorang pedagang harapan.", author: "Napoleon Bonaparte" },
+            { text: "Tugas seorang pemimpin adalah membawa orang-orangnya dari tempat mereka berada ke tempat yang belum pernah mereka kunjungi.", author: "Henry Kissinger" },
+            { text: "Kepemimpinan adalah kapasitas untuk menerjemahkan visi menjadi kenyataan.", author: "Warren Bennis" },
+            { text: "Seorang pemimpin tahu jalan, pergi ke jalan, dan menunjukkan jalan.", author: "John C. Maxwell" },
+            { text: "Kepemimpinan sejati adalah melayani orang lain.", author: "Paus Fransiskus" },
+
+            // --- Pendidikan & Belajar ---
+            { text: "Kapasitas untuk belajar adalah anugerah; kemampuan belajar adalah keterampilan; kemauan untuk belajar adalah pilihan.", author: "Brian Herbert" },
+            { text: "Pendidikan bukanlah mengisi ember, tapi menyalakan api.", author: "William Butler Yeats" },
+            { text: "Tujuan pendidikan adalah mengganti pikiran yang kosong dengan pikiran yang terbuka.", author: "Malcolm Forbes" },
+            { text: "Mereka yang tidak bisa mengubah pikiran mereka tidak bisa mengubah apa pun.", author: "George Bernard Shaw" },
+            { text: "Satu-satunya hal yang mengganggu pembelajaran saya adalah pendidikan saya.", author: "Albert Einstein" },
+
+            // --- Bonus Tambahan Khusus Anak IT / TKJ ---
+            { text: "Komputer sangat bodoh. Mereka hanya tahu persis apa yang Anda perintahkan kepada mereka.", author: "Grace Hopper" },
+            { text: "Dalam dunia perangkat lunak, aset terbaik adalah pikiran yang selalu ingin tahu.", author: "Linus Torvalds" },
+            { text: "Hardware adalah bagian dari komputer yang bisa Anda tendang; software adalah bagian yang hanya bisa Anda kutuk.", author: "Arthur C. Clarke" },
+            { text: "Internet adalah kota terbesar di dunia yang pernah dibangun.", author: "John Perry Barlow" },
+            { text: "Talk is cheap. Show me the code.", author: "Linus Torvalds" }
+        ];
+
+        let quoteIndex = 0;
+        const qBox = document.getElementById('quote-box');
+        const qText = document.getElementById('quote-text');
+        const qAuthor = document.getElementById('quote-author');
+
+        function putarKataBijak() {
+            qBox.style.opacity = '0'; // Efek memudar/hilang
+            
+            setTimeout(() => {
+                quoteIndex = Math.floor(Math.random() * kataBijak.length); // Pilih acak
+                qText.innerText = `"${kataBijak[quoteIndex].text}"`;
+                qAuthor.innerText = `- ${kataBijak[quoteIndex].author}`;
+                
+                qBox.style.opacity = '1'; // Efek muncul kembali
+            }, 500); // Tunggu setengah detik saat gelap, lalu ganti kata
+        }
+
+        // Atur rotasi setiap 4.000 milidetik (4 detik)
+        setInterval(putarKataBijak, 4000);
+        
+        // Panggil langsung saat web pertama kali dibuka
+        putarKataBijak();
     </script>
 </body>
 </html>
